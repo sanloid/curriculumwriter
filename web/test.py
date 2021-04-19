@@ -9,4 +9,4 @@ def render_doc(disc_name):
     print('Имя дисциплины: ', disc_name)
 
 
-eel.start('main.html' , size = (700, 700))
+eel.start('main.html')
