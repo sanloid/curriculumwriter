@@ -1,6 +1,10 @@
 from docxtpl import DocxTemplate
 from openpyxl import load_workbook
 
+
+def checking_values(value):
+    return value if value else 0
+
 def btn_click(programm_discipline, number_direction, name_direction, decryption):
 
     doc = DocxTemplate("Temp/Template.docx")
@@ -24,7 +28,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     print(number_string)
 
     for cell in input_cells:
-        context[f'cell_{cell}'] = 0 #checking_values(sheet[cell + str(number_string)].value)
+        context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
     
     # совсем плохо 
     context['SRS_les'] = int(context['cell_V']) - int(context['cell_W'])

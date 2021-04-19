@@ -10,4 +10,4 @@ def render_doc(programm_discipline, number_direction, name_direction, decryption
     docer.btn_click(programm_discipline, number_direction, name_direction, decryption)
 
 eel.start('main.html')
-render_doc()
+
