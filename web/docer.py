@@ -13,7 +13,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     sheet = wb.get_sheet_by_name('Лист1')
 
     number_of_row = sheet.max_row
-    nubmer_of_column = sheet.max_column
+    #nubmer_of_column = sheet.max_column
 
     number_string = 0
 

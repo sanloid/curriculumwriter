@@ -1,8 +1,6 @@
 import eel
-
-eel.init('web')
-
 import docer
+eel.init('web')
 
 #предпологается что либо из этого чуда будет вызываться весь докер либо что-то похожее всунуть в docer.py 
 @eel.expose
