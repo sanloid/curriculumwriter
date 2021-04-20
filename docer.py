@@ -1,6 +1,6 @@
 from docxtpl import DocxTemplate
 from openpyxl import load_workbook
-
+import eel
 
 def checking_values(value):
     return value if value else 0
@@ -40,3 +40,13 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
 
     doc.render(context)
     doc.save(programm_discipline + "_programm.docx")
+
+
+eel.init('web')
+
+#предпологается что либо из этого чуда будет вызываться весь докер либо что-то похожее всунуть в docer.py 
+@eel.expose
+def render_doc(programm_discipline, number_direction, name_direction, decryption):
+    btn_click(programm_discipline, number_direction, name_direction, decryption)
+
+eel.start('main.html')
