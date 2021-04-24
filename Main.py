@@ -30,6 +30,13 @@ for line in list_file_spec:
     string = line.replace("\n", "")
     spec_array.append(string)
 
+
+list_file_naprav = open('web/list_naprav.txt')
+naprav_array = []
+for line in list_file_naprav:
+    string = line.replace("\n", "")
+    naprav_array.append(string)
+
 def checking_values(value):
     return value if value else 0
 
@@ -84,5 +91,8 @@ for i in range(len(num_array)):
 
 for i in range(len(spec_array)):
     eel.addOptionToSpec(spec_array[i])
+
+for i in range(len(naprav_array)):
+    eel.addOptionToNaprav(naprav_array[i])
 
 eel.start('main.html', size = (500 , 500))

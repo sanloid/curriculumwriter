@@ -1,7 +1,8 @@
 renderButton.onclick = function() {
     rendered();
 };
-var num_counter = 1 , spec_counter = 1; 
+
+var num_counter = 1 , spec_counter = 1 , naprav_counter = 1; 
 eel.expose(addOption);
 function addOption (value){
   let newOption = new Option(value , value);
@@ -22,6 +23,12 @@ function addOptionToSpec (value){
   spec_counter += 1;
 }
 
+eel.expose(addOptionToNaprav);
+function addOptionToNaprav (value){
+  let newOption = new Option(value);
+  naprav_list.append(newOption);
+  naprav_counter += 1;
+}
 
 
 
