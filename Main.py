@@ -15,7 +15,7 @@ disc_array = []
 for line in list_file:
     string = line.replace("\n", "")
     disc_array.append(string)
-print(disc_array)
+    
 def checking_values(value):
     return value if value else 0
 
