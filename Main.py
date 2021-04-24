@@ -15,7 +15,21 @@ disc_array = []
 for line in list_file:
     string = line.replace("\n", "")
     disc_array.append(string)
-    
+list_file.close
+
+list_file_num = open('web/list_num.txt')
+num_array = []
+for line in list_file_num:
+    string = line.replace("\n", "")
+    num_array.append(string)
+list_file_num.close
+
+list_file_spec = open('web/list_spec.txt')
+spec_array = []
+for line in list_file_spec:
+    string = line.replace("\n", "")
+    spec_array.append(string)
+
 def checking_values(value):
     return value if value else 0
 
@@ -61,7 +75,14 @@ eel.init('web')
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
     btn_click(programm_discipline, number_direction, name_direction, decryption)
 
+
 for i in range(len(disc_array)):
     eel.addOption(disc_array[i])
+
+for i in range(len(num_array)):
+    eel.addOptionToNum(num_array[i])
+
+for i in range(len(spec_array)):
+    eel.addOptionToSpec(spec_array[i])
 
 eel.start('main.html', size = (500 , 500))

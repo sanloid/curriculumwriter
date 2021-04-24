@@ -1,12 +1,30 @@
 renderButton.onclick = function() {
     rendered();
 };
-
+var num_counter = 1 , spec_counter = 1; 
 eel.expose(addOption);
 function addOption (value){
-  let newOption = new Option(value);
+  let newOption = new Option(value , value);
   list.append(newOption);
 }
+
+eel.expose(addOptionToNum);
+function addOptionToNum (value){
+  let newOption = new Option(value);
+  number_list.append(newOption);
+  num_counter += 1;
+}
+
+eel.expose(addOptionToSpec);
+function addOptionToSpec (value){
+  let newOption = new Option(value);
+  spec_list.append(newOption);
+  spec_counter += 1;
+}
+
+
+
+
 
 async function rendered() {
     // чтение данных
