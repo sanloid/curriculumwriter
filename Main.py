@@ -9,6 +9,13 @@ year = now.year
 day = now.day
 month = month_dict[now.month]
 
+
+list_file = open('web/list_discip.txt')
+disc_array = []
+for line in list_file:
+    string = line.replace("\n", "")
+    disc_array.append(string)
+print(disc_array)
 def checking_values(value):
     return value if value else 0
 
@@ -20,8 +27,6 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     sheet = wb.get_sheet_by_name('Лист1')
 
     number_of_row = sheet.max_row
-    #nubmer_of_column = sheet.max_column
-
     number_string = 0
 
     for i in range(number_of_row):
@@ -47,14 +52,16 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     context['day'] = day
     context['month'] = month
     doc.render(context)
-    doc.save(programm_discipline + " составленная программа.docx")
+    doc.save("Составленные программы/"+programm_discipline + " составленная программа.docx")
 
 
 eel.init('web')
 
-#предпологается что либо из этого чуда будет вызываться весь докер либо что-то похожее всунуть в docer.py 
 @eel.expose
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
     btn_click(programm_discipline, number_direction, name_direction, decryption)
+
+for i in range(len(disc_array)):
+    eel.addOption(disc_array[i])
 
 eel.start('main.html', size = (500 , 500))

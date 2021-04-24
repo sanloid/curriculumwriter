@@ -2,6 +2,11 @@ renderButton.onclick = function() {
     rendered();
 };
 
+eel.expose(addOption);
+function addOption (value){
+  let newOption = new Option(value);
+  list.append(newOption);
+}
 
 async function rendered() {
     // чтение данных
@@ -13,4 +18,4 @@ async function rendered() {
     let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption)();
 }
 
-
+console.log(disc_list);
