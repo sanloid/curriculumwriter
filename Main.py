@@ -72,6 +72,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     context['decryption'] = decryption
     context['day'] = day
     context['month'] = month
+    context['year'] = year
     doc.render(context)
     doc.save("Составленные программы/"+programm_discipline + " составленная программа.docx")
 
