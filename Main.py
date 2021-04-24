@@ -1,6 +1,13 @@
 from docxtpl import DocxTemplate
 from openpyxl import load_workbook
 import eel
+import datetime
+
+now = datetime.datetime.now()
+month_dict = {1: "январь", 2: "февраль", 3: "марть", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
+year = now.year
+day = now.day
+month = month_dict[now.month]
 
 def checking_values(value):
     return value if value else 0
@@ -37,9 +44,10 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     context['number_direction'] = number_direction
     context['name_direction'] = name_direction
     context['decryption'] = decryption
-
+    context['day'] = day
+    context['month'] = month
     doc.render(context)
-    doc.save(programm_discipline + "_programm.docx")
+    doc.save(programm_discipline + " составленная программа.docx")
 
 
 eel.init('web')
@@ -49,4 +57,4 @@ eel.init('web')
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
     btn_click(programm_discipline, number_direction, name_direction, decryption)
 
-eel.start('main.html')
+eel.start('main.html', size = (500 , 500))
