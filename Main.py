@@ -10,28 +10,28 @@ day = now.day
 month = month_dict[now.month]
 
 
-list_file = open('web/list_discip.txt')
+list_file = open('Lists/list_discip.txt')
 disc_array = []
 for line in list_file:
     string = line.replace("\n", "")
     disc_array.append(string)
 list_file.close
 
-list_file_num = open('web/list_num.txt')
+list_file_num = open('Lists/list_num.txt')
 num_array = []
 for line in list_file_num:
     string = line.replace("\n", "")
     num_array.append(string)
 list_file_num.close
 
-list_file_spec = open('web/list_spec.txt')
+list_file_spec = open('Lists/list_spec.txt')
 spec_array = []
 for line in list_file_spec:
     string = line.replace("\n", "")
     spec_array.append(string)
 
 
-list_file_naprav = open('web/list_naprav.txt')
+list_file_naprav = open('Lists/list_naprav.txt')
 naprav_array = []
 for line in list_file_naprav:
     string = line.replace("\n", "")
