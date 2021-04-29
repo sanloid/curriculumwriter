@@ -4,7 +4,7 @@ import eel
 import datetime
 
 now = datetime.datetime.now()
-month_dict = {1: "январь", 2: "февраль", 3: "марть", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
+month_dict = {1: "январь", 2: "февраль", 3: "март", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
 year = now.year
 day = now.day
 month = month_dict[now.month]
@@ -66,7 +66,6 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
     
-    # совсем плохо 
     context['SRS_les'] = int(context['cell_V']) - int(context['cell_W'])
     context['pas_type']  = 'экзамен'
     context['programm_discipline'] = programm_discipline
@@ -86,7 +85,6 @@ eel.init('web')
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
     btn_click(programm_discipline, number_direction, name_direction, decryption)
 
-
 @eel.expose
 def getTheNum(value):
     if value == "":
@@ -98,7 +96,6 @@ def getTheSpec(value):
     if value == "":
         return ""
     return NumSpecDict[value]
-
 
 for i in range(len(disc_array)):
     eel.addOption(disc_array[i])
