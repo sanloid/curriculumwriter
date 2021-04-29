@@ -19,14 +19,14 @@
 
     <div class="inputs__field">
       <p class="inputs__name">Код направления:</p>
-      <input type="text" size="40" id = "number_direction" list = "number_list">
+      <input type="text" size="40" id = "number_direction" list = "number_list" onchange="number_list_change(this.value)">
       <datalist id="number_list">
       </datalist>
     </div>
 
     <div class="input__field">
       <p class="inputs__name">Название направления:</p>
-      <input type="text" size="40" id = "name_direction" list = "spec_list">
+      <input type="text" size="40" id = "name_direction" list = "spec_list" onchange="name_spec_list_change(this.value)" >
       <datalist id="spec_list">
       </datalist>
     </div>
@@ -37,7 +37,6 @@
       <datalist id="naprav_list">
       </datalist>
     </div>
-
   </div>
 </div>
    
