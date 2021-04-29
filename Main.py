@@ -37,6 +37,9 @@ for line in list_file_naprav:
     string = line.replace("\n", "")
     naprav_array.append(string)
 
+NumSpecDict = dict(zip(num_array, spec_array))
+SpecNumDict = dict(zip(spec_array, num_array))
+
 def checking_values(value):
     return value if value else 0
 
@@ -74,7 +77,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     context['month'] = month
     context['year'] = year
     doc.render(context)
-    doc.save("CompiledPrograms/"+programm_discipline + " составленная программа.docx")
+    doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
 
 eel.init('web')
@@ -82,6 +85,15 @@ eel.init('web')
 @eel.expose
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
     btn_click(programm_discipline, number_direction, name_direction, decryption)
+
+
+@eel.expose
+def getTheNum(value):
+    return SpecNumDict[value]
+
+@eel.expose
+def getTheSpec(value):
+    return NumSpecDict[value]
 
 
 for i in range(len(disc_array)):
