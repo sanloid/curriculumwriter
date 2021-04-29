@@ -80,6 +80,8 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
 
 
 eel.init('web')
+# Для запуска сверстаного просто раскоментировать то что ниже
+#eel.init('SiteLayout')
 
 @eel.expose
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
