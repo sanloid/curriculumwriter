@@ -2,6 +2,36 @@ renderButton.onclick = function() {
     rendered();
 };
 
+var num_counter = 1 , spec_counter = 1 , naprav_counter = 1; 
+eel.expose(addOption);
+function addOption (value){
+  let newOption = new Option(value , value);
+  list.append(newOption);
+}
+
+eel.expose(addOptionToNum);
+function addOptionToNum (value){
+  let newOption = new Option(value);
+  number_list.append(newOption);
+  num_counter += 1;
+}
+
+eel.expose(addOptionToSpec);
+function addOptionToSpec (value){
+  let newOption = new Option(value);
+  spec_list.append(newOption);
+  spec_counter += 1;
+}
+
+eel.expose(addOptionToNaprav);
+function addOptionToNaprav (value){
+  let newOption = new Option(value);
+  naprav_list.append(newOption);
+  naprav_counter += 1;
+}
+
+
+
 
 async function rendered() {
     // чтение данных
@@ -12,3 +42,5 @@ async function rendered() {
     // в петон, из питона ничо получать не надо (пока что вроде как)
     let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption)();
 }
+
+console.log(disc_list);

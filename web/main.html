@@ -3,25 +3,49 @@
 
  <head>
   <meta charset="utf-8">
-  <title>Генератор учебных программ</title>
+  <title>Составление учебных программ</title>
   <link href = "main.css" rel = "stylesheet" type = "text/css"/>
  </head>
 
 
  <body>
-    <p>Название дисциплины:</p>
-    <input type="text" size="40"  id = "programm_discipline">
-    <p>Номер направления:</p>
-    <input type="text" size="40" id = "number_direction">
-    <p>Имя направления:</p>
-    <input type="text" size="40" id = "name_direction">
-    <p>Доп инфа (то, что в скобках после имени направления):</p>
-    <input type="text" size="40" id = "decryption">
+  <div class="inputs">
+    <div class="inputs__field">
+      <p class="inputs__name">Название дисциплины:</p>
+      <input type="text" size="40"  id = "programm_discipline" list="list">
+      <datalist id="list">
+      </datalist>
+    </div>
 
+    <div class="inputs__field">
+      <p class="inputs__name">Код направления:</p>
+      <input type="text" size="40" id = "number_direction" list = "number_list">
+      <datalist id="number_list">
+      </datalist>
+    </div>
+
+    <div class="input__field">
+      <p class="inputs__name">Название направления:</p>
+      <input type="text" size="40" id = "name_direction" list = "spec_list">
+      <datalist id="spec_list">
+      </datalist>
+    </div>
+
+    <div class="input__field">
+       <p class="inputs__name">Направленность:</p>
+      <input type="text" size="40" id = "decryption" list = "naprav_list">
+      <datalist id="naprav_list">
+      </datalist>
+    </div>
+
+  </div>
+</div>
+   
+   <div class = "renderButton">
     <input id = "renderButton" type="button" value="Готово" onclick="rendered()"></p>
- </body>
+   </div>
+</body>
 
-
- <script src = "eel.js"></script>
- <script src="script.js"></script>
+<script src = "eel.js"></script>
+<script src="script.js"></script>
 </html>
