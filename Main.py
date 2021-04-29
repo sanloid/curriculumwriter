@@ -89,10 +89,14 @@ def render_doc(programm_discipline, number_direction, name_direction, decryption
 
 @eel.expose
 def getTheNum(value):
+    if value == "":
+        return ""
     return SpecNumDict[value]
 
 @eel.expose
 def getTheSpec(value):
+    if value == "":
+        return ""
     return NumSpecDict[value]
 
 
