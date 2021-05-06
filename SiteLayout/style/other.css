@@ -172,10 +172,14 @@ p{
 	position: absolute;
 	bottom:2%;	
 }
-.button-block button:first-child {
-	visibility: hidden;
+.button-block button:first-child:hover {
+	margin-top: 2px;
+	box-shadow: 1px 1px 5px 1px #1B4759;
 }
-
+.button-block button:last-child:hover {
+	margin-top: 2px;
+	box-shadow: 1px 1px 5px 1px #1B4759;
+}
 .main-button {
 	background: linear-gradient(to top, #FF5F04, #B54100);
 	color: #fff;
@@ -188,6 +192,11 @@ p{
 	height: 100%;
 	width: 100%;
 	max-width: 247px;
+	box-shadow: 1px 3px 5px 1px #1B4759;
+	cursor: pointer;
+}
+button {
+	cursor: pointer;
 }
 .form {
 	width: 100%;
@@ -210,4 +219,40 @@ p{
 	line-height: 22px;
 	letter-spacing: 2px;
 	color: #1B4759;
+}
+.visible {
+	visibility: visible;
+}
+.invisible {
+	visibility: hidden;
+}
+.tooltip {
+  position: fixed;
+  padding: 10px 20px;
+  border: 1px solid #b3c9ce;
+  border-radius: 4px;
+  text-align: center;
+  color: #333;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+.field__name img:hover {
+	margin-bottom: 1px;
+}
+
+.help-icon {
+	font-weight: 600;
+	font-size: 18px;
+	color: #fff;
+	background-color: #4B7384;
+	border-radius: 10px 10px 0 0px;
+	padding: 2px 7px 0px 7px;
+	box-shadow: 4px 3px 3px rgba(0, 0, 0, .3);
+	cursor: pointer;
+}
+.help-icon:hover {
+	color: red;
+	padding: 2px 7px 0px 7px;
+	box-shadow: 2px 3px 3px rgba(0, 0, 0, .3);
+	transition: 300ms;
 }
