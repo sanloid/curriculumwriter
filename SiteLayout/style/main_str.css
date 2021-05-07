@@ -95,14 +95,20 @@ li{
 	height: 100%;
 	color: #fff;
 	margin-bottom: 103px;
+	display: flex;
 }
 .xls {
-	margin-right: 50px;
+	margin-right: 55px;
 }
-.oop {
+.xls:hover {
+	margin-top: 2px;
+	box-shadow: 1px 1px 5px 1px #1B4759;
 }
-.main-button{
-	background: linear-gradient(to top, #FF5F04, #B54100);
+.oop:hover {
+	margin-top: 2px;
+	box-shadow: 1px 1px 5px 1px #1B4759;
+}
+.main-button {
 	color: #fff;
 	border-radius: 30px;
 	border: none;
@@ -113,11 +119,32 @@ li{
 	height: 100%;
 	width: 100%;
 	max-width: 247px;
+	box-shadow: 1px 3px 5px 1px #1B4759;
+	cursor: pointer;
+}
+.main-button label {
+	cursor: pointer;
+
 }
 .continue {
-	visibility: hidden;
 	margin-left: 32%;
 }
 .continue__text{
 	color: #FF5F04;
 }
+.visible {
+	visibility: visible;
+}
+.invisible {
+	visibility: hidden;
+}
+.orange-color {
+	background: linear-gradient(to top, #FF5F04, #B54100);
+}
+.blue-color {
+	background: linear-gradient(to top, #4B7384, #395D6C);
+}
+input {
+	display: none;
+}
+

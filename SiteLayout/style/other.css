@@ -7,6 +7,10 @@ body{
 	font-family: 'Montserrat', sans-serif;
 	height: 100%;
 }
+p {
+	margin: 0;
+	padding: 0;
+}
 a{
 	text-decoration: none;
 }
@@ -107,17 +111,29 @@ li{
 	display: flex;
 }
 .workspace__side {
+	display: flex;
+	padding-top:5%;
+	align-items: flex-start;
+	justify-content: center;
 	width: 100%;
 	max-width: 72px;
-	text-align: left;
-	position: relative;
 }
 .name-discipline {
-
+	font-weight: 700;
+	line-height: 22px;
+	letter-spacing: 1px;
+	font-size: 18px;
+	color: #fff;
 }
-input {outline:none;}
-.workspace__disc{
-
+input {
+	outline:none;
+}
+.workspace__disc {
+	padding: 12px 30px;
+	background-color: #4B7384;
+	border-radius: 0px 0px 30px 0px;
+	writing-mode: tb-rl;
+	transform: rotate(180deg);
 }
 .field {
 	margin-left: 7%;
@@ -144,6 +160,7 @@ p{
 	border: none;
 	border-radius: 10px;
 	font-size: 18px;
+	padding-left: 8px;
 }
 .button-block {
 	max-height: 46px;
@@ -154,6 +171,14 @@ p{
 	justify-content: space-around;
 	position: absolute;
 	bottom:2%;	
+}
+.button-block button:first-child:hover {
+	margin-top: 2px;
+	box-shadow: 1px 1px 5px 1px #1B4759;
+}
+.button-block button:last-child:hover {
+	margin-top: 2px;
+	box-shadow: 1px 1px 5px 1px #1B4759;
 }
 .main-button {
 	background: linear-gradient(to top, #FF5F04, #B54100);
@@ -167,12 +192,17 @@ p{
 	height: 100%;
 	width: 100%;
 	max-width: 247px;
+	box-shadow: 1px 3px 5px 1px #1B4759;
+	cursor: pointer;
+}
+button {
+	cursor: pointer;
 }
 .form {
 	width: 100%;
 	max-width: 1094px;
 	background-color: #CFE1E9;
-	border-radius: 15px;
+	border-radius: 30px;
 	max-height: 1094px;
 	min-height: 100%;
 	position: relative;
@@ -189,4 +219,40 @@ p{
 	line-height: 22px;
 	letter-spacing: 2px;
 	color: #1B4759;
+}
+.visible {
+	visibility: visible;
+}
+.invisible {
+	visibility: hidden;
+}
+.tooltip {
+  position: fixed;
+  padding: 10px 20px;
+  border: 1px solid #b3c9ce;
+  border-radius: 4px;
+  text-align: center;
+  color: #333;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+.field__name img:hover {
+	margin-bottom: 1px;
+}
+
+.help-icon {
+	font-weight: 600;
+	font-size: 18px;
+	color: #fff;
+	background-color: #4B7384;
+	border-radius: 10px 10px 0 0px;
+	padding: 2px 7px 0px 7px;
+	box-shadow: 4px 3px 3px rgba(0, 0, 0, .3);
+	cursor: pointer;
+}
+.help-icon:hover {
+	color: red;
+	padding: 2px 7px 0px 7px;
+	box-shadow: 2px 3px 3px rgba(0, 0, 0, .3);
+	transition: 300ms;
 }
