@@ -1,8 +1,11 @@
+import tkinter
 from docxtpl import DocxTemplate
 from openpyxl import load_workbook
 import eel
 import datetime
-
+from tkinter import *
+import tkinter.filedialog as fd 
+import os
 now = datetime.datetime.now()
 month_dict = {1: "январь", 2: "февраль", 3: "март", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
 year = now.year
@@ -10,32 +13,73 @@ day = now.day
 month = month_dict[now.month]
 
 
-list_file = open('Lists/list_discip.txt')
+'''
+Тут грузится список дисциплин. Это должно работать сразу после загрузки плана! Ну шобы список был.
+'''
+plan_xlsx_path = "Temp/plan.xlsx"
+oop_path = None
 disc_array = []
-for line in list_file:
-    string = line.replace("\n", "")
-    disc_array.append(string)
-list_file.close
+
+@eel.expose
+def loadDiscLists():
+    discipListGenerate = load_workbook(plan_xlsx_path)
+    sheetGenerator = discipListGenerate['Лист1']
+
+    number_of_row = sheetGenerator.max_row
+    spis = []
+    for i in range(number_of_row):
+        a = sheetGenerator['C'+ str(i + 1)].value
+        b = sheetGenerator['K'+ str(i + 1)].value
+        c = sheetGenerator['O'+ str(i + 1)].value
+        bIsInt = True
+        try: 
+            b = int(b)
+            c = int(c)
+            if c > 400:
+                bIsInt = False
+        except:
+            bIsInt = False
+
+        if a != None and bIsInt:
+            spis.append(a.strip())
+
+    f = open('Lists/list_discip.txt', 'w')
+    for i in range(len(spis)):
+        f.writelines(spis[i]+"\n")
+    f.close()
+
+    file = open('Lists/list_discip.txt')
+    for line in file:
+        string = line.replace("\n", "")
+        disc_array.append(string)
+    file.close()
+
+'''
+конец загрузки.
+'''
+
+
 
 list_file_num = open('Lists/list_num.txt')
 num_array = []
 for line in list_file_num:
     string = line.replace("\n", "")
     num_array.append(string)
-list_file_num.close
+list_file_num.close()
 
 list_file_spec = open('Lists/list_spec.txt')
 spec_array = []
 for line in list_file_spec:
     string = line.replace("\n", "")
     spec_array.append(string)
-
+list_file_spec.close()
 
 list_file_naprav = open('Lists/list_naprav.txt')
 naprav_array = []
 for line in list_file_naprav:
     string = line.replace("\n", "")
     naprav_array.append(string)
+list_file_naprav.close()
 
 NumSpecDict = dict(zip(num_array, spec_array))
 SpecNumDict = dict(zip(spec_array, num_array))
@@ -43,12 +87,16 @@ SpecNumDict = dict(zip(spec_array, num_array))
 def checking_values(value):
     return value if value else 0
 
+def getExtencion(path):
+    filename, file_extension = os.path.splitext(path)
+    return file_extension
+
 def btn_click(programm_discipline, number_direction, name_direction, decryption):
 
     doc = DocxTemplate("Temp/Template.docx")
     
-    wb = load_workbook('Temp/plan.xlsx')
-    sheet = wb.get_sheet_by_name('Лист1')
+    wb = load_workbook(plan_xlsx_path)
+    sheet = wb['Лист1']
 
     number_of_row = sheet.max_row
     number_string = 0
@@ -79,9 +127,9 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
 
-eel.init('web')
+#eel.init('web')
 # Для запуска сверстаного просто раскоментировать то что ниже
-#eel.init('SiteLayout')
+eel.init('SiteLayout')
 
 @eel.expose
 def render_doc(programm_discipline, number_direction, name_direction, decryption):
@@ -99,16 +147,41 @@ def getTheSpec(value):
         return ""
     return NumSpecDict[value]
 
-for i in range(len(disc_array)):
-    eel.addOption(disc_array[i])
+@eel.expose
+def FileChoiceExcel():
+    root = Tk()
+    root.withdraw()
+    root.wm_attributes('-topmost', 1)
+    folder = fd.askopenfilename()
+    plan_xlsx_path = folder
+    ext = getExtencion(folder)
+    print(folder)
+    return folder
 
-for i in range(len(num_array)):
-    eel.addOptionToNum(num_array[i])
+@eel.expose
+def FileChoiceOOP():
+    root = Tk()
+    root.withdraw()
+    root.wm_attributes('-topmost', 1)
+    folder = fd.askopenfilename()
+    oop_path = folder
+    ext = getExtencion(folder)
+    print(folder)
+    return folder
 
-for i in range(len(spec_array)):
-    eel.addOptionToSpec(spec_array[i])
 
-for i in range(len(naprav_array)):
-    eel.addOptionToNaprav(naprav_array[i])
+@eel.expose
+def LoadToHTML():
+    for i in range(len(disc_array)):
+        eel.addOption(disc_array[i])
 
-eel.start('main.html', size = (500 , 500))
+    for i in range(len(num_array)):
+        eel.addOptionToNum(num_array[i])
+
+    for i in range(len(spec_array)):
+        eel.addOptionToSpec(spec_array[i])
+
+    for i in range(len(naprav_array)):
+        eel.addOptionToNaprav(naprav_array[i])
+
+eel.start('main.html')

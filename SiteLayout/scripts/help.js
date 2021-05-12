@@ -1,5 +1,5 @@
     let tooltipElem;
-
+    
     document.onmouseover = function(event) {
       let target = event.target;
 
