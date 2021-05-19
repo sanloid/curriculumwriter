@@ -1,8 +1,8 @@
-// TODO перенести в отдельный скрипт рендер документа
+//TODO перенести в отдельный скрипт рендер документа
 
-// renderButton.onclick = function() {
-//   rendered();
-// };
+renderButton.onclick = function() {
+  rendered();
+};
 
 
 document.addEventListener("DOMContentLoaded", ready);
@@ -57,7 +57,8 @@ async function rendered() {
   let number_direction = document.getElementById('number_direction').value;
   let name_direction = document.getElementById('name_direction').value;
   let decryption = document.getElementById('decryption').value;
-  let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption)();
+  let list_text = document.getElementById('mark_list').value;
+  let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption, list_text)();
 }
 
 async function nameChange(name){
