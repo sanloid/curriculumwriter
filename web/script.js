@@ -2,30 +2,54 @@ renderButton.onclick = function() {
     rendered();
 };
 
+var num_counter = 1 , spec_counter = 1 , naprav_counter = 1; 
+eel.expose(addOption);
+function addOption (value){
+  let newOption = new Option(value , value);
+  list.append(newOption);
+}
 
-async function rendered() {
-    // чтение данных
-    let programm_discipline = document.getElementById('programm_discipline').value;
-    let number_direction = document.getElementById('number_direction').value;
-    let name_direction = document.getElementById('name_direction').value;
-    let decryption = document.getElementById('decryption').value;
-    // в петон, из питона ничо получать не надо (пока что вроде как)
-    let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption)();
+eel.expose(addOptionToNum);
+function addOptionToNum (value){
+  let newOption = new Option(value);
+  number_list.append(newOption);
+  num_counter += 1;
+}
+
+eel.expose(addOptionToSpec);
+function addOptionToSpec (value){
+  let newOption = new Option(value);
+  spec_list.append(newOption);
+  spec_counter += 1;
+}
+
+eel.expose(addOptionToNaprav);
+function addOptionToNaprav (value){
+  let newOption = new Option(value);
+  naprav_list.append(newOption);
+  naprav_counter += 1;
+}
+
+async function number_list_change(value){
+  var specName = await eel.getTheSpec(value)();
+  document.getElementById("name_direction").value = specName;
+}
+
+async function name_spec_list_change(value){
+  var specNum = await eel.getTheNum(value)();
+  document.getElementById("number_direction").value = specNum;
 }
 
 
 
-var colors = ['1abc9c', '2c3e50', '2980b9', '7f8c8d', 'f1c40f', 'd35400', '27ae60'];
+async function rendered() {
+    let programm_discipline = document.getElementById('programm_discipline').value;
+    let number_direction = document.getElementById('number_direction').value;
+    let name_direction = document.getElementById('name_direction').value;
+    let decryption = document.getElementById('decryption').value;
+    let list_text = document.getElementById('mark_list').value;
+    alert(list_text)
+    let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption, list_text)();
+}
 
-colors.each(function (color) {
-  $$('.color-picker')[0].insert(
-    '<div class="square" style="background: #' + color + '"></div>'
-  );
-});
-
-$$('.color-picker')[0].on('click', '.square', function(event, square) {
-  background = square.getStyle('background');
-  $$('.custom-dropdown select').each(function (dropdown) {
-    dropdown.setStyle({'background' : background});
-  });
-});
+console.log(disc_list);

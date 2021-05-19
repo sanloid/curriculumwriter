@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/other.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<title>Форма</title>
+</head>
+<body>
+	<section class="section">
+		<div class="container">
+			<div class="head-container">
+				<div class="nav">
+					<div class="nav__logo">
+						<img src="img/logo.png" alt="" width="100%">
+					</div>
+					<div class="nav__list">
+						<ul class="list">
+							<li><a href="main.html" class="link">Главная</a></li>
+							<li><a href="" class="link">О сервисе</a></li>
+							<li><a href="" class="link">Контакты</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section-content section">
+		<div class="container">
+			<div class="content">
+				<div class="title-row">
+					<p class="title">Пожалуйста, заполните форму!</p>
+					<p class="title-section">Раздел</p>
+					<hr width="17%">
+					<p class="name-section">Название раздела</p>
+					<hr width="30%">
+				</div>
+
+					<div class="workspace">
+						<div class="workspace__side">
+							<div class="workspace__disc">
+								<p class="name-discipline" id = "nameDiscToChange"></p>
+							</div>
+						</div>
+					<div class="form">
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Название дисциплины:
+								</p>
+								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "programm_discipline" list="list" onchange="nameChange(this.value)">
+								<datalist id="list">
+								</datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Код направления:
+								</p>
+								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "number_direction" list = "number_list" onchange="number_list_change(this.value)">
+								<datalist id="number_list"></datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Название напраления:
+								</p>
+								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "name_direction" list = "spec_list" onchange="name_spec_list_change(this.value)">
+								<datalist id="spec_list"></datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Направленность:
+								</p>
+								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "decryption" list = "naprav_list">
+								<datalist id="naprav_list"></datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Какой-то список:
+								</p>
+								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<textarea id="mark_list"></textarea>	
+							</div>
+						</div>
+						
+						<div class="button-block">
+							<button class="main-button  invisible"><< Предыдущая</button>
+							<button class="main-button">Следующая >></button>
+						</div>
+
+						<div class = "renderButton">
+							<input id = "renderButton" type="button" value="Готово" onclick="rendered()"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src = "eel.js"></script>
+	<script src="scripts/script.js"></script>
+	<script src="scripts/help.js"></script>
+</body>
+</html>

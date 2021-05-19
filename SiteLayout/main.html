@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/main_str.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<title>Главная страница</title>
+</head>
+<body>
+	<section class="section">
+		<div class="container">
+			<div class="head-container">
+				<div class="nav">
+					<div class="nav__logo">
+						<img src="img/logo.png" alt="" width="100%">
+					</div>
+					<div class="nav__list">
+						<ul class="list">
+							<li><a href="main.html" class="link">Главная</a></li>
+							<li><a href="" class="link">О сервисе</a></li>
+							<li><a href="" class="link">Контакты</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="center-block">
+				<div class="row">
+					<div class="row__column">
+						<div class="row__title">
+							<p class="title">Система оформления документов</p>
+							<p class="subtitle">Загрузите файлы, чтобы начать</p>
+						</div>
+						<div class="button-block">
+							<button id= "xls-button" class="xls main-button orange-color">
+								<label><input type="text">Загрузить xls</label>
+							</button>
+							<button id="oop-button" class="oop main-button orange-color">
+								<label><input type="text">Загрузить ООП</label>
+							</button>
+						</div>
+						<div id="continue" class="continue invisible">
+							<a href="other.html" class="continue__text">Продолжить >></a>
+						</div>
+					</div>
+					<div class="row__column">
+						<img src="img/mainLogo.png" alt="" width="100%">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src = "eel.js"></script>
+	<script src="scripts/script_main.js"></script>
+</body>
+</html>
