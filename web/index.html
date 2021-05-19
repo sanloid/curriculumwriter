@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html>
-
- <head>
+<head>
   <meta charset="utf-8">
   <title>Генератор учебных программ</title>
-  <link href = "main.css" rel = "stylesheet" type = "text/css"/>
- </head>
+  <link href = "style.css" rel = "stylesheet" type = "text/css"/>
 
-
- <body>
+  
+</head>
+<body>
   <div class="inputs">
+
     <div class="inputs__field">
       <p class="inputs__name">Название дисциплины:</p>
       <input type="text" size="40"  id = "programm_discipline">
@@ -31,25 +31,16 @@
     </div>
 
   </div>
-</div>
-   
-   <div class = "renderButton">
+
+  <div class = "renderButton">
     <input id = "renderButton" type="button" value="Готово" onclick="rendered()"></p>
-   </div>
-
-   <span class="color-picker"></span>
- 
- <br/><br/>
-  
- <span class="custom-dropdown">
+  </div>
+  <span class="color-picker"></span>
+  <span class="custom-dropdown">
      <select>
-
+      <script defer src = "eel.js"></script>
+      <script defer src="script.js"></script>
      </select>
   </span>
-
- <script src = "eel.js"></script>
- <script src="script.js"></script>
 </body>
-
- 
 </html>
