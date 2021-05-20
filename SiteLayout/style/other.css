@@ -177,6 +177,8 @@ datalist option {
 	color: #1B4759;
 	letter-spacing: 2px;
 	padding-left: 8px;
+	height: 100%;
+	min-height: 25px;
 }
 
 .button-block {
@@ -266,16 +268,17 @@ button {
 	transition: 300ms;
 }
 .newField {
-	font-weight: 800;
+	font-weight: 600;
 	border: none;
 }
+
 .addField{
 	max-width: 75%;
 	display: flex;
 	justify-content: flex-end;
 }
 #addField {
-	font-weight: 800;
+	font-weight: 600;
 	font-size: 18px;
 	border: none;
 	color: #fff;
@@ -310,4 +313,30 @@ button {
 	box-shadow: 0px 1px 3px 1px #1B4759;
 	margin-top: 2px;
 	transition: 150ms;
+}
+
+textarea{
+	outline: none;
+}
+
+
+
+.delField{
+	max-width: 75%;
+	display: flex;
+	justify-content: flex-end;
+}
+#delField {
+	font-weight: 600;
+	font-size: 18px;
+	border: none;
+	color: rgba(230, 41, 41, 0.863);
+	background-color: #4B7384;
+	border-radius: 5px;
+	transition: 300ms;
+}
+#delField:hover {
+	transform: rotate(180deg);
+	color: rgb(230, 41, 41);
+	transition:400ms;
 }

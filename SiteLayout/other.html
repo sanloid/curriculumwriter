@@ -41,7 +41,7 @@
 					<div class="workspace">
 						<div class="workspace__side">
 							<div class="workspace__disc">
-								<p class="name-discipline" id = "nameDiscToChange"></p>
+								<p class="name-discipline" id = "nameDiscToChange">Название дисциплины</p>
 							</div>
 						</div>
 					<div class="form">
@@ -102,7 +102,7 @@
 						<div class="field">
 							<div class="field__name">
 								<p class="field__discription">
-									Какой-то список:
+									Основные задачи дисциплины:
 								</p>
 								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
 							</div>
@@ -113,15 +113,19 @@
 							<div class = "addField">
 								<input id = "addField" type="button" value="+" onclick="addField()"></p>
 							</div>
+							<div class = "delField">
+								<input class = "invisible" id = "delField" type="button" value="x" onclick="delField()"></p>
+							</div>
 						</div>
 						
-						<div class="button-block">
+						<div class="button-block invisible">
 							<button class="main-button  invisible"><< Предыдущая</button>
 							<button class="main-button">Следующая >></button>
 						</div>
 						<div class = "renderButton">
 							<input id = "renderButton" type="button" value="Готово" onclick="rendered()"></p>
 						</div>
+						
 					</div>
 				</div>
 			</div>
