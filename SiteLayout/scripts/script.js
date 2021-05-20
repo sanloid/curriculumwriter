@@ -1,5 +1,5 @@
 //TODO перенести в отдельный скрипт рендер документа
-
+let num_of_list = 1 
 renderButton.onclick = function() {
   rendered();
 };
@@ -53,15 +53,32 @@ document.getElementById("number_direction").value = specNum;
 
 
 async function rendered() {
+  let arr_field = new Array();
+  alert(num_of_list);
+  let i  = 0; 
+  while(i < num_of_list){
+    let buf = i 
+    var num = "text_area_" + buf.toString();
+    let el = document.getElementById(num).value;
+    arr_field[i] = el;
+    i += 1; 
+  }
+  arr_field[0] = document.getElementById('text_area_0').value;
+  alert(arr_field);
   let programm_discipline = document.getElementById('programm_discipline').value;
   let number_direction = document.getElementById('number_direction').value;
   let name_direction = document.getElementById('name_direction').value;
   let decryption = document.getElementById('decryption').value;
-  let list_text = document.getElementById('mark_list').value;
-  let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption, list_text)();
+  let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field)();
 }
 
 async function nameChange(name){
   document.getElementById("nameDiscToChange").innerHTML = name
 }
 
+async function addField(){
+    let elements = document.createElement('textarea');
+    elements.id = "text_area_" + num_of_list;
+    text_area_field.append(elements); 
+    num_of_list += 1
+}
