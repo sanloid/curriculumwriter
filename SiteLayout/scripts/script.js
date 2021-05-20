@@ -79,6 +79,7 @@ async function nameChange(name){
 async function addField(){
     let elements = document.createElement('textarea');
     elements.id = "text_area_" + num_of_list;
+    elements.className = "newField"
     text_area_field.append(elements); 
     num_of_list += 1
 }
