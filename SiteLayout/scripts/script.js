@@ -4,7 +4,6 @@ renderButton.onclick = function() {
   rendered();
 };
 
-
 document.addEventListener("DOMContentLoaded", ready);
 
 async function ready() {
@@ -50,8 +49,6 @@ async function name_spec_list_change(value) {
   document.getElementById("number_direction").value = specNum;
 }
 
-
-
 async function rendered() {
 
   let arr_field = new Array();
@@ -96,7 +93,6 @@ async function addField() {
   elements.id = "text_area_" + num_of_list;
   elements.className = "newField field__input"
   text_area_field.append(elements); 
-
 }
 
 async function delField() {

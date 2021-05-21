@@ -15,6 +15,7 @@ month = month_dict[now.month]
 '''
 Тут грузится список дисциплин. Это должно работать сразу после загрузки плана! Ну шобы список был.
 '''
+
 plan_xlsx_path = ""
 oop_path = ""
 disc_array = []
@@ -114,9 +115,8 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     print(number_string)
     text_area = ""
     for i in range(len(arr_field)):
+        text_area += str( i + 1 ) + ")  " + arr_field[i] + ";\n"
 
-        text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
-        
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
     
