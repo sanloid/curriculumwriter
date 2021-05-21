@@ -90,10 +90,10 @@ def getExtencion(path):
     filename, file_extension = os.path.splitext(path)
     return file_extension
 
-def btn_click(programm_discipline, number_direction, name_direction, decryption, list_text):
+def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field):
 
     doc = DocxTemplate("Temp/Template.docx")
-    
+    print('im here!')
     wb = load_workbook(plan_xlsx_path)
     sheet = wb['Лист1']
 
@@ -109,6 +109,9 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     context = dict()
 
     print(number_string)
+    text_area = ""
+    for i in range(len(arr_field)):
+        text_area += arr_field[i]
 
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
@@ -122,7 +125,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     context['day'] = day
     context['month'] = month
     context['year'] = year
-    context['list_text'] = list_text
+    context['text_area'] = text_area
     doc.render(context)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
@@ -132,8 +135,8 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
 eel.init('SiteLayout')
 
 @eel.expose
-def render_doc(programm_discipline, number_direction, name_direction, decryption, list_text):
-    btn_click(programm_discipline, number_direction, name_direction, decryption, list_text)
+def render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field):
+    btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field)
 
 @eel.expose
 def getTheNum(value):

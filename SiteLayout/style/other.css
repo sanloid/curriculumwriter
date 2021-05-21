@@ -159,7 +159,6 @@ p{
 .field__field {
 	max-width: 80%;
 	height: 100%;
-	max-height: 100px;
 }
 datalist option {
 	font-weight: 500;
@@ -178,6 +177,8 @@ datalist option {
 	color: #1B4759;
 	letter-spacing: 2px;
 	padding-left: 8px;
+	height: 100%;
+	min-height: 25px;
 }
 
 .button-block {
@@ -258,10 +259,84 @@ button {
 	padding: 2px 7px 0px 7px;
 	box-shadow: 4px 3px 3px rgba(0, 0, 0, .3);
 	cursor: pointer;
+	transition: 300ms;
 }
 .help-icon:hover {
 	color: red;
 	padding: 2px 7px 0px 7px;
 	box-shadow: 2px 3px 3px rgba(0, 0, 0, .3);
 	transition: 300ms;
+}
+.newField {
+	font-weight: 600;
+	border: none;
+}
+
+.addField{
+	max-width: 75%;
+	display: flex;
+	justify-content: flex-end;
+}
+#addField {
+	font-weight: 600;
+	font-size: 18px;
+	border: none;
+	color: #fff;
+	background-color: #4B7384;
+	border-radius: 5px;
+	transition: 300ms;
+}
+#addField:hover {
+	transform: rotate(180deg);
+	color:#3DD714;
+	transition:400ms;
+}
+.renderButton {
+	height: 100%;
+	max-height: 40px;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+}
+#renderButton {
+	color:#fff;
+	background: linear-gradient(to top, #00A86B, #51C878);
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 550;
+	letter-spacing: 1px;
+	box-shadow: 1px 3px 5px 1px #1B4759;
+}
+
+#renderButton:hover {
+	box-shadow: 0px 1px 3px 1px #1B4759;
+	margin-top: 2px;
+	transition: 150ms;
+}
+
+textarea{
+	outline: none;
+}
+
+
+
+.delField{
+	max-width: 75%;
+	display: flex;
+	justify-content: flex-end;
+}
+#delField {
+	font-weight: 600;
+	font-size: 18px;
+	border: none;
+	color: rgba(230, 41, 41, 0.863);
+	background-color: #4B7384;
+	border-radius: 5px;
+	transition: 300ms;
+}
+#delField:hover {
+	transform: rotate(180deg);
+	color: rgb(230, 41, 41);
+	transition:400ms;
 }
