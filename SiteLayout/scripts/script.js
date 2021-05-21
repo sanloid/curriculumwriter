@@ -4,6 +4,7 @@ renderButton.onclick = function() {
   rendered();
 };
 
+
 document.addEventListener("DOMContentLoaded", ready);
 
 async function ready() {
@@ -49,6 +50,8 @@ async function name_spec_list_change(value) {
   document.getElementById("number_direction").value = specNum;
 }
 
+
+
 async function rendered() {
 
   let arr_field = new Array();
@@ -64,14 +67,19 @@ async function rendered() {
 
   arr_field[0] = document.getElementById('text_area_0').value;
 
-  alert(arr_field);
+ 
 
   let programm_discipline = document.getElementById('programm_discipline').value;
   let number_direction = document.getElementById('number_direction').value;
   let name_direction = document.getElementById('name_direction').value;
   let decryption = document.getElementById('decryption').value;
-  let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field)();
-
+  let name_sostavitel = document.getElementById('name_sostavitel').value
+  let degree = document.getElementById('stepen_sostavitel').value
+  let kafedra = document.getElementById('kafedra').value
+  let zav_kafedra = document.getElementById('zav_kafedra').value
+  
+  let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption,
+                                 arr_field, name_sostavitel, degree, kafedra, zav_kafedra)();
 }
 
 async function nameChange(name) {
@@ -92,7 +100,9 @@ async function addField() {
   elements.id = "text_area_" + num_of_list;
   elements.className = "newField field__input"
   text_area_field.append(elements); 
+
 }
+
 
 async function delField() {
 
@@ -106,4 +116,5 @@ async function delField() {
   if (b == 1) {
     document.getElementById("delField").className = "invisible";
   }
+
 }

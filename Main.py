@@ -6,8 +6,8 @@ import datetime
 from tkinter import *
 import tkinter.filedialog as fd 
 import os
-
 now = datetime.datetime.now()
+
 month_dict = {1: "январь", 2: "февраль", 3: "март", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
 year = now.year
 day = now.day
@@ -62,6 +62,8 @@ def loadDiscLists():
 конец загрузки.
 '''
 
+
+
 list_file_num = open('Lists/list_num.txt')
 num_array = []
 for line in list_file_num:
@@ -93,11 +95,11 @@ def getExtencion(path):
     filename, file_extension = os.path.splitext(path)
     return file_extension
 
-def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field):
+def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra):
 
+    print('i am here')
     doc = DocxTemplate("Temp/Template.docx")
-    print('im here!')
-
     global plan_xlsx_path
     wb = load_workbook(plan_xlsx_path)
     sheet = wb['Лист1']
@@ -115,7 +117,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
 
     text_area = ""
     for i in range(len(arr_field)):
-        text_area += str( i + 1 ) + ")  " + arr_field[i] + ";\n"
+        text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
 
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
@@ -130,6 +132,11 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     context['month'] = month
     context['year'] = year
     context['text_area'] = text_area
+    context['name_sostavitel'] = name_sostavitel
+    context['degree'] = degree
+    context['kafedra'] = kafedra
+    context['zav_kafedra']= zav_kafedra
+
     doc.render(context)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
@@ -137,8 +144,11 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
 eel.init('SiteLayout')
 
 @eel.expose
-def render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field):
-    btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field)
+def render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra):
+                
+    btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra)
 
 @eel.expose
 def getTheNum(value):
