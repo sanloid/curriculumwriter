@@ -15,12 +15,13 @@ month = month_dict[now.month]
 '''
 Тут грузится список дисциплин. Это должно работать сразу после загрузки плана! Ну шобы список был.
 '''
-plan_xlsx_path = "Temp/plan.xlsx"
-oop_path = None
+plan_xlsx_path = ""
+oop_path = ""
 disc_array = []
 
 @eel.expose
 def loadDiscLists():
+    global plan_xlsx_path
     discipListGenerate = load_workbook(plan_xlsx_path)
     sheetGenerator = discipListGenerate['Лист1']
 
@@ -94,6 +95,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
 
     doc = DocxTemplate("Temp/Template.docx")
     print('im here!')
+    global plan_xlsx_path
     wb = load_workbook(plan_xlsx_path)
     sheet = wb['Лист1']
 
@@ -111,7 +113,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     print(number_string)
     text_area = ""
     for i in range(len(arr_field)):
-        text_area += arr_field[i]
+        text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
 
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
@@ -156,6 +158,7 @@ def FileChoiceExcel():
     root.withdraw()
     root.wm_attributes('-topmost', 1)
     folder = fd.askopenfilename()
+    global plan_xlsx_path
     plan_xlsx_path = folder
     ext = getExtencion(folder)
     print(folder)
@@ -167,6 +170,7 @@ def FileChoiceOOP():
     root.withdraw()
     root.wm_attributes('-topmost', 1)
     folder = fd.askopenfilename()
+    global oop_path
     oop_path = folder
     ext = getExtencion(folder)
     print(folder)

@@ -51,7 +51,7 @@
 								<p class="field__discription">
 									Название дисциплины:
 								</p>
-								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+								<p data-tooltip="Полное название дисциплины" class="help-icon">?</p>
 							</div>
 							<div class="field__field">
 								<input type="text" class="field__input" id = "programm_discipline" list="list" onchange="nameChange(this.value)">
@@ -65,7 +65,7 @@
 								<p class="field__discription">
 									Код направления:
 								</p>
-								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+								<p data-tooltip="Код специальности" class="help-icon">?</p>
 							</div>
 							<div class="field__field">
 								<input type="text" class="field__input" id = "number_direction" list = "number_list" onchange="number_list_change(this.value)">
@@ -78,7 +78,7 @@
 								<p class="field__discription">
 									Название напраления:
 								</p>
-								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+								<p data-tooltip="Название направления" class="help-icon">?</p>
 							</div>
 							<div class="field__field">
 								<input type="text" class="field__input" id = "name_direction" list = "spec_list" onchange="name_spec_list_change(this.value)">
@@ -91,7 +91,7 @@
 								<p class="field__discription">
 									Направленность:
 								</p>
-								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+								<p data-tooltip="Направленность или краткое описание направления" class="help-icon">?</p>
 							</div>
 							<div class="field__field">
 								<input type="text" class="field__input" id = "decryption" list = "naprav_list">
@@ -102,9 +102,60 @@
 						<div class="field">
 							<div class="field__name">
 								<p class="field__discription">
+									Программу составил:
+								</p>
+								<p data-tooltip="ФИО составителя программы" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "name_sostavitel">
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Ученая степень, звание и должность составителя:
+								</p>
+								<p data-tooltip="Ученая степень, звание, должность составителя" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "stepen_sostavitel">
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Кафедра:
+								</p>
+								<p data-tooltip="Название кафедры" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "kafedra">
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Зав. кафедрой:
+								</p>
+								<p data-tooltip="Заведующий кафедрой" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "zav_kafedra">
+							</div>
+						</div>
+
+
+
+						
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
 									Основные задачи дисциплины:
 								</p>
-								<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
+								<p data-tooltip="Перечисление всех задач дисциплины" class="help-icon">?</p>
 							</div>
 							
 							<div class="field__field" id = "text_area_field">

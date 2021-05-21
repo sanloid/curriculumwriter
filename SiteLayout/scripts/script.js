@@ -58,7 +58,7 @@ async function rendered() {
   alert(num_of_list);
 
   let i  = 0; 
-  while ( i < num_of_list ) {
+  while ( i <= num_of_list ) {
     let buf = i 
     var num = "text_area_" + buf.toString();
     let el = document.getElementById(num).value;
