@@ -1,5 +1,5 @@
 //TODO перенести в отдельный скрипт рендер документа
-let num_of_list = 0
+let num_of_list = 0 
 renderButton.onclick = function() {
   rendered();
 };
@@ -57,17 +57,16 @@ async function rendered() {
   let arr_field = new Array();
   alert(num_of_list);
 
-  arr_field[0] = document.getElementById('text_area_0').value;
-
-  let i  = 1; 
+  let i  = 0; 
   while ( i <= num_of_list ) {
-    let paragraph_number = i;
-    var paragraph = "text_area_" + paragraph_number.toString();
-    let element = document.getElementById(num).value;
-    arr_field[i] = element;
-    i += 1;
+    let buf = i 
+    var num = "text_area_" + buf.toString();
+    let el = document.getElementById(num).value;
+    arr_field[i] = el;
+    i += 1; 
   }
 
+  arr_field[0] = document.getElementById('text_area_0').value;
 
   alert(arr_field);
 
@@ -87,7 +86,6 @@ async function nameChange(name) {
   else {
     document.getElementById("nameDiscToChange").innerHTML = name
   }
-
 }
 
 async function addField() {
@@ -101,7 +99,6 @@ async function addField() {
 
 }
 
-
 async function delField() {
 
   let b = num_of_list
@@ -114,5 +111,4 @@ async function delField() {
   if (b == 1) {
     document.getElementById("delField").className = "invisible";
   }
-
 }
