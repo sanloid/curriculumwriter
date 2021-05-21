@@ -52,7 +52,6 @@ async function name_spec_list_change(value) {
 async function rendered() {
 
   let arr_field = new Array();
-  alert(num_of_list);
 
   let i  = 0; 
   while ( i <= num_of_list ) {

@@ -6,6 +6,7 @@ import datetime
 from tkinter import *
 import tkinter.filedialog as fd 
 import os
+
 now = datetime.datetime.now()
 month_dict = {1: "январь", 2: "февраль", 3: "март", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
 year = now.year
@@ -13,7 +14,9 @@ day = now.day
 month = month_dict[now.month]
 
 '''
-Тут грузится список дисциплин. Это должно работать сразу после загрузки плана! Ну шобы список был.
+Тут грузится список дисциплин.
+Это должно работать сразу после загрузки плана!
+Ну шобы список был.
 '''
 
 plan_xlsx_path = ""
@@ -58,8 +61,6 @@ def loadDiscLists():
 '''
 конец загрузки.
 '''
-
-
 
 list_file_num = open('Lists/list_num.txt')
 num_array = []
@@ -112,7 +113,6 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
     context = dict()
 
-    print(number_string)
     text_area = ""
     for i in range(len(arr_field)):
         text_area += str( i + 1 ) + ")  " + arr_field[i] + ";\n"
@@ -134,8 +134,6 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
 
-#eel.init('web')
-# Для запуска сверстаного просто раскоментировать то что ниже
 eel.init('SiteLayout')
 
 @eel.expose
