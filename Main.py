@@ -94,7 +94,6 @@ def getExtencion(path):
 def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field):
 
     doc = DocxTemplate("Temp/Template.docx")
-    print('im here!')
     global plan_xlsx_path
     wb = load_workbook(plan_xlsx_path)
     sheet = wb['Лист1']
@@ -110,7 +109,6 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
     context = dict()
 
-    print(number_string)
     text_area = ""
     for i in range(len(arr_field)):
         text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
@@ -132,8 +130,6 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
 
-#eel.init('web')
-# Для запуска сверстаного просто раскоментировать то что ниже
 eel.init('SiteLayout')
 
 @eel.expose
