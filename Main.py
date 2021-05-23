@@ -96,7 +96,7 @@ def getExtencion(path):
     return file_extension
 
 def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
-                name_sostavitel, degree, kafedra, zav_kafedra):
+                name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin):
 
     doc = DocxTemplate("Temp/Template.docx")
     global plan_xlsx_path
@@ -137,8 +137,10 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     context['name_sostavitel'] = name_sostavitel
     context['degree'] = degree
     context['kafedra'] = kafedra
-    context['zav_kafedra']= zav_kafedra
-
+    context['zav_kafedra'] = zav_kafedra
+    context['ruk_oop'] = ruk_oop
+    context['stepen_ruk_oop'] = stepen_ruk_oop
+    context['cel_disciplin'] = cel_disciplin
     doc.render(context)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
@@ -147,10 +149,10 @@ eel.init('SiteLayout')
 
 @eel.expose
 def render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field,
-                name_sostavitel, degree, kafedra, zav_kafedra):
+                name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin):
                 
     btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
-                name_sostavitel, degree, kafedra, zav_kafedra)
+                name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin)
 
 @eel.expose
 def getTheNum(value):
