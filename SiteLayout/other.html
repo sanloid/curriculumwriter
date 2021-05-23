@@ -29,93 +29,153 @@
 	</section>
 	<section class="section-content section">
 		<div class="container">
-		<div class="content">
-			<div class="title-row">
-				<p class="title">Пожалуйста, заполните форму!</p>
-				<p class="title-section">Раздел</p>
-				<hr width="17%">
-				<p class="name-section">Название раздела</p>
-				<hr width="30%">
+			<div class="content">
+				<div class="title-row">
+					<p class="title">Пожалуйста, заполните форму!</p>
+					<p class="title-section">Раздел</p>
+					<hr width="17%">
+					<p class="name-section">Название раздела</p>
+					<hr width="30%">
+				</div>
+
+					<div class="workspace">
+						<div class="workspace__side">
+							<div class="workspace__disc">
+								<p class="name-discipline" id = "nameDiscToChange">Название дисциплины</p>
+							</div>
+						</div>
+					<div class="form">
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Название дисциплины:
+								</p>
+								<p data-tooltip="Полное название дисциплины" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "programm_discipline" list="list" onchange="nameChange(this.value)">
+								<datalist id="list">
+								</datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Код направления:
+								</p>
+								<p data-tooltip="Код специальности" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "number_direction" list = "number_list" onchange="number_list_change(this.value)">
+								<datalist id="number_list"></datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Название напраления:
+								</p>
+								<p data-tooltip="Название направления" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "name_direction" list = "spec_list" onchange="name_spec_list_change(this.value)">
+								<datalist id="spec_list"></datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Направленность:
+								</p>
+								<p data-tooltip="Направленность или краткое описание направления" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "decryption" list = "naprav_list">
+								<datalist id="naprav_list"></datalist>
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Программу составил:
+								</p>
+								<p data-tooltip="ФИО составителя программы" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "name_sostavitel">
+							</div>
+						</div>
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Ученая степень, звание и должность составителя:
+								</p>
+								<p data-tooltip="Ученая степень, звание, должность составителя" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "stepen_sostavitel">
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Кафедра:
+								</p>
+								<p data-tooltip="Название кафедры" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "kafedra">
+							</div>
+						</div>
+
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Зав. кафедрой:
+								</p>
+								<p data-tooltip="Заведующий кафедрой" class="help-icon">?</p>
+							</div>
+							<div class="field__field">
+								<input type="text" class="field__input" id = "zav_kafedra">
+							</div>
+						</div>
+						<div class="field">
+							<div class="field__name">
+								<p class="field__discription">
+									Основные задачи дисциплины:
+								</p>
+								<p data-tooltip="Перечисление всех задач дисциплины" class="help-icon">?</p>
+							</div>
+							
+							<div class="field__field" id = "text_area_field">
+								<textarea class="newField field__input" id = "text_area_0"></textarea>	
+							</div>
+							<div class = "addField">
+								<input class = "invisible" id = "delField" type="button" value="x" onclick="delField()"></p>
+								<input id = "addField" type="button" value="+" onclick="addField()"></p>
+						</div>
+						<div class="button-block invisible">
+							<button class="main-button  invisible"><< Предыдущая</button>
+							<button class="main-button">Следующая >></button>
+						</div>
+						<div class = "renderButton">
+							<input id = "renderButton" type="button" value="Готово" onclick="rendered()"></p>
+						</div>
+						
+					</div>
+				</div>
 			</div>
-				<div class="workspace">
-				<div class="workspace__side">
-					<div class="workspace__disc">
-						<p class="name-discipline" id = "nameDiscToChange"></p>
-					</div>
-				</div>
-				<div class="form">
-
-					<div class="field">
-						<div class="field__name">
-							<p class="field__discription">
-								Название дисциплины:
-							</p>
-							<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
-						</div>
-						<div class="field__field">
-							<input type="text" class="field__input" id = "programm_discipline" list="list" onchange="nameChange(this.value)">
-							<datalist id="list">
-							</datalist>
-						</div>
-					</div>
-
-					<div class="field">
-						<div class="field__name">
-							<p class="field__discription">
-								Код направления:
-							</p>
-							<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
-						</div>
-						<div class="field__field">
-							<input type="text" class="field__input" id = "number_direction" list = "number_list" onchange="number_list_change(this.value)">
-							<datalist id="number_list">
-							</datalist>
-						</div>
-					</div>
-
-					<div class="field">
-						<div class="field__name">
-							<p class="field__discription">
-								Название напраления:
-							</p>
-							<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
-						</div>
-						<div class="field__field">
-							<input type="text" class="field__input" id = "name_direction" list = "spec_list" onchange="name_spec_list_change(this.value)">
-							<datalist id="spec_list">
-							</datalist>
-						</div>
-					</div>
-
-					<div class="field">
-						<div class="field__name">
-							<p class="field__discription">
-								Направленность:
-							</p>
-							<p data-tooltip="Подсказка для поля" class="help-icon">?</p>
-						</div>
-						<div class="field__field">
-							<input type="text" class="field__input" id = "decryption" list = "naprav_list">
-							<datalist id="naprav_list">
-							</datalist>
-						</div>
-					</div>
-					
-					<div class="button-block">
-						<button class="main-button  invisible">
-							<< Предыдущая
-						</button>
-						<button class="main-button">
-								Следующая >>
-						</button>
-					</div>
-				</div>
-	</div>
-	</div>
-	</div>
-		</section>
+		</div>
+	</section>
 	<script src = "eel.js"></script>
 	<script src="scripts/script.js"></script>
 	<script src="scripts/help.js"></script>
+	<script src="/web/script.js"></script>
 </body>
 </html>

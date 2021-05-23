@@ -7,21 +7,25 @@ from tkinter import *
 import tkinter.filedialog as fd 
 import os
 now = datetime.datetime.now()
+
 month_dict = {1: "январь", 2: "февраль", 3: "март", 4: "апрель", 5: "май", 6: "июнь", 7: "июль", 8: "август", 9: "сентябрь", 10: "октябрь", 11: "ноябрь", 12: "декабрь"}
 year = now.year
 day = now.day
 month = month_dict[now.month]
 
+'''
+Тут грузится список дисциплин.
+Это должно работать сразу после загрузки плана!
+Ну шобы список был.
+'''
 
-'''
-Тут грузится список дисциплин. Это должно работать сразу после загрузки плана! Ну шобы список был.
-'''
-plan_xlsx_path = "Temp/plan.xlsx"
-oop_path = None
+plan_xlsx_path = ""
+oop_path = ""
 disc_array = []
 
 @eel.expose
 def loadDiscLists():
+    global plan_xlsx_path
     discipListGenerate = load_workbook(plan_xlsx_path)
     sheetGenerator = discipListGenerate['Лист1']
 
@@ -91,10 +95,12 @@ def getExtencion(path):
     filename, file_extension = os.path.splitext(path)
     return file_extension
 
-def btn_click(programm_discipline, number_direction, name_direction, decryption):
+def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra):
 
+    print('i am here')
     doc = DocxTemplate("Temp/Template.docx")
-    
+    global plan_xlsx_path
     wb = load_workbook(plan_xlsx_path)
     sheet = wb['Лист1']
 
@@ -109,7 +115,9 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
     context = dict()
 
-    print(number_string)
+    text_area = ""
+    for i in range(len(arr_field)):
+        text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
 
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
@@ -123,17 +131,24 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption)
     context['day'] = day
     context['month'] = month
     context['year'] = year
+    context['text_area'] = text_area
+    context['name_sostavitel'] = name_sostavitel
+    context['degree'] = degree
+    context['kafedra'] = kafedra
+    context['zav_kafedra']= zav_kafedra
+
     doc.render(context)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 
 
-#eel.init('web')
-# Для запуска сверстаного просто раскоментировать то что ниже
 eel.init('SiteLayout')
 
 @eel.expose
-def render_doc(programm_discipline, number_direction, name_direction, decryption):
-    btn_click(programm_discipline, number_direction, name_direction, decryption)
+def render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra):
+                
+    btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra)
 
 @eel.expose
 def getTheNum(value):
@@ -153,6 +168,7 @@ def FileChoiceExcel():
     root.withdraw()
     root.wm_attributes('-topmost', 1)
     folder = fd.askopenfilename()
+    global plan_xlsx_path
     plan_xlsx_path = folder
     ext = getExtencion(folder)
     print(folder)
@@ -164,6 +180,7 @@ def FileChoiceOOP():
     root.withdraw()
     root.wm_attributes('-topmost', 1)
     folder = fd.askopenfilename()
+    global oop_path
     oop_path = folder
     ext = getExtencion(folder)
     print(folder)
