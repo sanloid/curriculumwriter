@@ -96,7 +96,8 @@ def getExtencion(path):
     return file_extension
 
 def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
-                name_sostavitel, degree, kafedra, zav_kafedra):
+              name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin):
+
 
     print('i am here')
     doc = DocxTemplate("Temp/Template.docx")
@@ -112,12 +113,15 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
             number_string = i + 1
             break
     
-    input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
-    context = dict()
-
     text_area = ""
     for i in range(len(arr_field)):
+        if ( i == len(arr_field) - 1):
+            text_area += str( i + 1 ) + ") " + arr_field[i] + ".\n"
+            continue
         text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
+
+    input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
+    context = dict()
 
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
@@ -135,7 +139,14 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     context['name_sostavitel'] = name_sostavitel
     context['degree'] = degree
     context['kafedra'] = kafedra
+<<<<<<< HEAD
     context['zav_kafedra']= zav_kafedra
+=======
+    context['zav_kafedra'] = zav_kafedra
+    context['ruk_oop'] = ruk_oop
+    context['stepen_ruk_oop'] = stepen_ruk_oop
+    context['cel_disciplin'] = cel_disciplin
+>>>>>>> test_branch
 
     doc.render(context)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
@@ -145,10 +156,17 @@ eel.init('SiteLayout')
 
 @eel.expose
 def render_doc(programm_discipline, number_direction, name_direction, decryption, arr_field,
+<<<<<<< HEAD
                 name_sostavitel, degree, kafedra, zav_kafedra):
                 
     btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
                 name_sostavitel, degree, kafedra, zav_kafedra)
+=======
+                name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin):
+                
+    btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
+                name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin)
+>>>>>>> test_branch
 
 @eel.expose
 def getTheNum(value):
