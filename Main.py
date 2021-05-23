@@ -111,15 +111,15 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
             number_string = i + 1
             break
     
-    input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
-    context = dict()
-
     text_area = ""
     for i in range(len(arr_field)):
         if ( i == len(arr_field) - 1):
             text_area += str( i + 1 ) + ") " + arr_field[i] + ".\n"
             continue
         text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
+
+    input_cells = ['O', 'T', 'U', 'W', 'V', 'M', 'L']
+    context = dict()
 
     for cell in input_cells:
         context[f'cell_{cell}'] = checking_values(sheet[cell + str(number_string)].value)
@@ -141,6 +141,7 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
     context['ruk_oop'] = ruk_oop
     context['stepen_ruk_oop'] = stepen_ruk_oop
     context['cel_disciplin'] = cel_disciplin
+
     doc.render(context)
     doc.save("CompiledPrograms/" + programm_discipline + " составленная программа.docx")
 

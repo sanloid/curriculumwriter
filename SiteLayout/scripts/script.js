@@ -80,8 +80,10 @@ async function rendered() {
   let ruk_oop = document.getElementById('ruk_oop').value
   let stepen_ruk_oop = document.getElementById('stepen_ruk_oop').value
   let cel_disciplin = document.getElementById('cel_disciplin').value
+
   let res = await eel.render_doc(programm_discipline, number_direction, name_direction, decryption,
-                                 arr_field, name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop, stepen_ruk_oop, cel_disciplin)();
+                                 arr_field, name_sostavitel, degree, kafedra, zav_kafedra, ruk_oop,
+                                 stepen_ruk_oop, cel_disciplin)();
 }
 
 async function nameChange(name) {
