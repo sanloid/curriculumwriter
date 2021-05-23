@@ -98,7 +98,6 @@ def getExtencion(path):
 def btn_click(programm_discipline, number_direction, name_direction, decryption, arr_field,
                 name_sostavitel, degree, kafedra, zav_kafedra):
 
-    print('i am here')
     doc = DocxTemplate("Temp/Template.docx")
     global plan_xlsx_path
     wb = load_workbook(plan_xlsx_path)
@@ -117,6 +116,9 @@ def btn_click(programm_discipline, number_direction, name_direction, decryption,
 
     text_area = ""
     for i in range(len(arr_field)):
+        if ( i == len(arr_field) - 1):
+            text_area += str( i + 1 ) + ") " + arr_field[i] + ".\n"
+            continue
         text_area += str( i + 1 ) + ") " + arr_field[i] + ";\n"
 
     for cell in input_cells:
